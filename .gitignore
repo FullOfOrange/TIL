@@ -1,3 +1,5 @@
 ##ignore compiled file
 ##java
 *.class
+.DS_Store
+.idea
