@@ -1,4 +1,4 @@
-## C++ cpp/h 파일 분할법
+## C++ .cpp/.h 파일 분할법
 
 c++ struct/class 작성시에, .h 파일을 만들땐 선언부와 구현부를 분리해야함.
 
@@ -36,8 +36,10 @@ return carName;
 
 ​    $ g++ -o Car.cpp
 ​    
-​    $ g++ -c main.out main.cpp Car.o
+​    ​$ g++ -c main.out main.cpp Car.o
 ​    
-​    이런식으로 명령을 서술하여 실행파일을 만든다.
+​    
+
+이런식으로 명령을 서술하여 실행파일을 만든다.
 ​    
 
