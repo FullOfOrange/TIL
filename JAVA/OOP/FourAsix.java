@@ -16,7 +16,8 @@ class Circle{
         }
         System.out.printf("가장 면적이 큰 원은 %f,%f,%d 이다",circles[big].x,circles[big].y,circles[big].radius);
     }
-}
+}//static 찾아보기
+
 
 class FourAsix{
     public static void main(String[] args){
