@@ -17,7 +17,7 @@ class A12 {
             System.out.println("0으로 나눌 수 없습니다.");
         else if(o!='+'&&o!='-'&&o!='*'&&o!='/')
             System.out.println("연산자가 올바르지 않습니다.");
-        else System.out.printf("%f%c%f의 결과는 %f\n",a,o,b,switchOperate(a,b,o));
+        else System.out.printf("%f%c%f의 결과는 %f\n",a,o,b,jav ,o));
 
         scanner.close();
     }
