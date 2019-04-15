@@ -19,8 +19,10 @@ class A8{
             System.out.printf("%d ",array[i]=rand);
             if(i%10==9)
                 System.out.println();
+            if(i==array.length-1)
+                System.out.println();
         }
-        /*테스트 코드
+        /*
         Arrays.sort(array);
         for(int x = 0; x<array.length; x++) {
             System.out.printf("%d ", array[x]);

@@ -5,7 +5,6 @@ class A10{
         while(max!=10) {
             i = (int) (Math.random() * 4);
             j = (int) (Math.random() * 4);
-            System.out.println(i+""+j);
             if (array[i][j] == 0) {
                 array[i][j] = (int)(Math.random() * 10) + 1;
                 ++max;
