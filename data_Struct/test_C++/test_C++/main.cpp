@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-/*
+
 class A{
 private:
     int a;
@@ -43,12 +43,11 @@ C::C(int a,char const* name):B(a,name){
 void C::showA(int c){
     std::cout<<"C constructor: "<<c<<std::endl;
 }
-/*
 void C::showA(){
     B::showA();
     std::cout<<"B : "<<c<<std::endl;
 }
- */
+
 int main(int argc, const char * argv[]) {
     char array[8]={'a','b','c','d','e','f','g','h'};
     std::copy(array+4,array+7,array+3);

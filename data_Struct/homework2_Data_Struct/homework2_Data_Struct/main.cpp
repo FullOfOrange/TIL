@@ -73,8 +73,6 @@ Bizcard::~Bizcard(){//소멸자
 void Bizcard::ShowInfo(){
     cout<<"이름 : "<<name<<endl<<"전화번호"<<phone<<endl;
 }
-/*Bizcard 끝*/
-/*Bag Class 정의부*/
 template <typename T>
 class Bag{
 private:
@@ -130,8 +128,6 @@ void Bag<T>::Pop() { //구현완료
     // compact array
     array[top--].~T();// destructor for T
 }
-/*Bag 끝*/
-/* main code*/
 int main(int argc, const char * argv[]) {
     Bag<Bizcard> bag;
     cout<<"bag Size: "<<bag.Size()<<endl<<(bag.IsEmpty()?"bag is empty":"bag is not empty")<<endl;

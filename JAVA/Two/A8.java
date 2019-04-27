@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 class A8{
+    private static final int X_RECT = 100, Y_RECT = 200;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int x1,x2,y1,y2;
@@ -10,7 +11,7 @@ class A8{
         x2 = scanner.nextInt();
         y2 = scanner.nextInt();
 
-        if(inRect(x1,y1,100,100,200,200) || inRect(x2,y2,100,100,200,200))
+        if(inRect(x1,y1,X_RECT,X_RECT,Y_RECT,Y_RECT) || inRect(x2,y2,X_RECT,X_RECT,Y_RECT,Y_RECT))
             System.out.println("충돌함");
         else
             System.out.println("충돌 안함");

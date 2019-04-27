@@ -25,6 +25,7 @@ class Seats{
     protected boolean reserveSeat(String name,int num,int seat){
         if(seats[seat][num].equals("---")){
             seats[seat][num] = name;
+
             return true;
         }else
             return false;
@@ -63,17 +64,20 @@ class Reserve{
                 break;
             else if(selectmenu==1){//예약
                 System.out.print("죄석구분 S(1), A(2), B(3) >>");
-                selectgrade = scanner.nextInt();
-                seats.showSeats(selectgrade-1);
+                try {
+                    selectgrade = scanner.nextInt();
+                    seats.showSeats(selectgrade - 1);
 
-                System.out.print("이름>>");
-                name = scanner.next();
-                System.out.print("번호>>");
-                seatnum = scanner.nextInt();
+                    System.out.print("이름>>");
+                    name = scanner.next();
+                    System.out.print("번호>>");
+                    seatnum = scanner.nextInt();
 
-                if(seats.reserveSeat(name,seatnum-1,selectgrade-1));
-                else System.out.println("예약에 실패하였습니다.");
-
+                    if (seats.reserveSeat(name, seatnum - 1, selectgrade - 1)) ;
+                    else System.out.println("예약에 실패하였습니다.");
+                }catch(ArrayIndexOutOfBoundsException e){
+                    System.out.println("없는 좌석입니다.");
+                }
             }else if(selectmenu==2){//조회
                 for(int i = 0; i<3; i++)
                     seats.showSeats(i);

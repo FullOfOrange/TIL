@@ -9,7 +9,7 @@ public class Grade{
         this.english = english;
     }
 
-    protected float average(){ return (math+science+english)/3; }
+    float average(){ return (math+science+english)/3; }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
