@@ -80,7 +80,7 @@ private:
     int capacity;
     int top;
 public:
-    Bag (int bagCapacity = 3);
+    Bag (int bagCapacity=3);
     ~Bag();
     int Size() const; //사이즈 리턴
     bool IsEmpty() const; //비어있는지에 대한 확인
