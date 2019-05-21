@@ -7,7 +7,7 @@ class VectorImpl implements Vector {
     private ArrayList<Scalar> vector; //내부에는 Scalar가 저장됨.
     /*생성자*/
     VectorImpl(int demention,Scalar scalar){ //Scalar로 내부를 채워넣음
-        vector = new ArrayList<>();
+        vector = new ArrayList();
         for(int x=0; x<demention; x++)
             vector.add(scalar);
     }
