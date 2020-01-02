@@ -4,7 +4,7 @@
 
 1. 대체로 java.util.* 을 import하면 앵간한 Util 성 함수는 다 가져다 쓸 수 있다. 일단 이걸 임포트하고 쓰자.
 
-2.
+2. Array 값 순회
 ```java
 for(String name: names){
     // 이곳에서 name이 for of 마냥 value를 순회하면서 확인한다.
@@ -19,3 +19,9 @@ for(String name: names){
 ```java
 Map<String, String> map = new HashMap<>();
 ```
+
+5. Map 같은 Collection 의 형태를 상속받은 클래스의 경우엔 iterator 라는 메소드가 있다. 이거로 순회를 해보자.
+Iterator<Integer> it = map.values().iterator();
+while (it.hasNext()) {
+    answer *= it.next().intValue() + 1;
+}
