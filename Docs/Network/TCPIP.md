@@ -1,57 +1,3 @@
-# 네트워크
-
-## 라우터
-
-WAN과 LAN의 경계라고도 말함.
-
-Router는 MAC 기반이 아니라 IP 기반으로 길을 찾는 놈이며, 자신의 내부 메모리에 Routing Table이 있어서 이것을 통해 라우팅을 한다. 
-
-**interface**
-
-라우터에는 각각의 인터페이스가 존재함 interface e0/1 이런식으로 접근함.
-
-**static route**
-
-라우팅 테이블에 자동으로 정보가 추가되는 것도 있지만, 내부망 같은 경우에는 이를 수동으로 추가하는 경우도 있음.
-
-```sh
-ip route <Destination IP> <Subnet-mask> <interface>
-```
-
-위와 같은 경우는 자신과 연결된 장비를 말하는 부분임.
-
-```
-ip route <my IP> <Subnet-mask> <destination IP>
-```
-
-위와 같은 경우는 나한테 들어온 아이피 대역이 어디로 향해야 하는지를 알려주는 부분임. (다른 장비의 아이피를 넣으면 됨)
-
-**dynamic route**
-
-라우팅 테이블을 직접 설정하는 것이 아니라, 다른 라우터들의 정보를 스캔 한뒤에, 그것을 또 다른 장비에게 내 정보를 알려주는 방식. 직접 경로를 정하는 것이 아니라 주변 라우터들을 스캔해서 그것들을 가지고 있는 것. 정보가 바뀌는 것은 잘 모르겠다.
-
-**OSPF**
-
-## OSI 7계층
-
-<img src="https://camo.githubusercontent.com/90fac88d1f73e7e3414cb03d3ae899e883eb409f/68747470733a2f2f626c6f67732e626d632e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031382f30362f6f73692d6d6f64656c2d372d6c61796572732d3131343078313435312e706e67" alt="img" width="50%;" />
-
-1. 물리계층 - 정말 물리적인 신호가 오가는 곳. 전선이나 전기적인 신호 등이 여기 포함됨.
-2. 데이터 링크 - 브릿지, 스위치 등 MAC 주소가 이에 해당
-3. 네트워크 - 라우터, IP 등 패킷이 이동하기 위한 경로를 선택하여 전달해준다.
-4. 전송 - TCP, UDP 등 포트를 통해 통신이 가능하도록 함.
-5. 세션 - API, Socket  - TCP/IP 세션을 만들고 없애는 책임을 가지는 계층이며, 데이터 통신을 위한 논리적 연결 담당
-6. 표현 - 파일 인코딩, 명령어 포장 등 데이터 표현에 대한 암호화
-7. 응용 - HTTP, FTP 등 최종 목적지로 App과 연계하여 일반적인 응용프로그램을 수행
-
-## TCP handshaking
-
-세션의 시작과 종료시 연결 지향을 유지하기 위해 각각의 송수신자가 현재 alive 상태를 확인하기 위함임.
-
-<img src="https://camo.githubusercontent.com/774e08740deffe1491e90625623a8a2e209f3d5a/68747470733a2f2f6d656469612e6765656b73666f726765656b732e6f72672f77702d636f6e74656e742f75706c6f6164732f5443502d636f6e6e656374696f6e2d312e706e67" alt="img" style="zoom:50%;" />
-
-
-
 ## TCP/IP
 
 https://d2.naver.com/helloworld/47667 를 정리한 내용임.
@@ -60,7 +6,7 @@ https://d2.naver.com/helloworld/47667 를 정리한 내용임.
 
 ### 성질
 
-1. **Connection oriented** 
+1. **Connection oriented**
 
    연결지향이다. 이는 먼저 서로의 상태를 확인하고, 연결을 맺은 뒤에 데이터를 주고 받는 방식이다.
    여기서 'TCP 연결 식별자'는 두 엔드포인트의 주소를 합친 것으로, <로컬 IP 주소, 로컬 포트번호, 리모트 IP 주소, 리모트 포트번호> 형태이다.
@@ -114,7 +60,7 @@ https://d2.naver.com/helloworld/47667 를 정리한 내용임.
 
 TCP 상태가 데이터 전송을 허용하면 새로운 TCP segment = 패킷 을 생성한다. Flow control 같은 이유로 데이터 전송이 불가능하면 시스템 콜은 이곳에서 중지되고 다시 App으로 제어권이 넘어간다.
 
-TCP segment 에는 TCP 헤더와 Payload가 담겨있고, payload에는 아직 ACK 받지 않은 send socket buffer의 데이터가 들어있다. 
+TCP segment 에는 TCP 헤더와 Payload가 담겨있고, payload에는 아직 ACK 받지 않은 send socket buffer의 데이터가 들어있다.
 
 TCP checksum을 계산한다. 여기서 pseudo 헤더 정보를 포함시킨다. (IP주소, segment 길이, 프로토콜 번호) 여기서 TCP 상태에 따라 패킷을 전송할 수 있다.
 
@@ -142,6 +88,6 @@ TCP 레이어에서도 checksum을 확인하고 패킷 검사를 한다. 그리�
 
 ### 스택 내부 제어 흐름(control flow)
 
-내부의 네트워크 흐름은 다음과 같다. event driven 방식이며 별도의 스레드가 없이 Interrupt에 의해 이뤄지는 행위들이다.
+내부의 네트워크 흐름은 다음과 같다. event driven 방식이며 별도의 스레드가 없이 Interrupt에 의해 이뤄지는 행위들이다. 이부분 부터는 너무 어렵다;
 
 ![networkstack3](https://d2.naver.com/content/images/2015/06/helloworld-47667-3.png)
